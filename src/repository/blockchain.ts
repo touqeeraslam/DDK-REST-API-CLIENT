@@ -28,4 +28,12 @@ export class BlockchainRepository implements IBlockchainRepository {
     updateInfo(info: BlockchainInfoSchema): void {
         this.info = info;
     }
+
+    getCirculating(): number {
+        return this.info.circulatingSupply;
+    }
+
+    getTotalSupply(): number {
+        return this.info.totalSupply;
+    }
 }
