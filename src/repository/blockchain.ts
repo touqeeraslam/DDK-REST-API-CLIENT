@@ -1,5 +1,6 @@
 
 import { BlockchainInfoSchema } from 'ddk.registry/dist/model/common/type';
+import { convertMoney } from 'src/util/comparator';
 
 export interface IBlockchainRepository {
     getInfo(): BlockchainInfoSchema;
@@ -30,10 +31,10 @@ export class BlockchainRepository implements IBlockchainRepository {
     }
 
     getCirculating(): number {
-        return this.info.circulatingSupply;
+        return convertMoney(this.info.circulatingSupply);
     }
 
     getTotalSupply(): number {
-        return this.info.totalSupply;
+        return convertMoney(this.info.totalSupply);
     }
 }
