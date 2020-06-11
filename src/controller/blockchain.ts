@@ -16,6 +16,13 @@ export class BlockchainController {
         return res.json( data );
     }
 
+    
+    getCirculatingInJson(_req: Request, res: Response): Response {
+        const data = blockchainRepository.getCirculating();
+
+        return res.send(new ResponseEntity({ data }));
+    }
+
     getTotalSupply(_req: Request, res: Response): Response {
         const data = blockchainRepository.getTotalSupply();
 
